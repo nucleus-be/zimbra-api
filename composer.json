@@ -1,5 +1,5 @@
 {
-    "name": "zimbra/soap-api",
+    "name": "nucleus-be/zimbra-api",
     "type": "library",
     "description": "PHP wrapper library around the Zimbra Soap API (web service)",
     "keywords": ["library", "soap", "web service", "client", "Zimbra API"],
@@ -9,12 +9,16 @@
             "name": "Nguyen Van Nguyen",
             "email": "nguyennv1981@gmail.com",
             "homepage": "https://github.com/nguyennv"
+        },
+        {
+            "name": "Jonas Wouters",
+            "homepage": "https://github.com/jonaswouters"
         }
     ],
     "require": {
         "php": ">=5.4.0",
         "evenement/evenement": "~2.0",
-        "guzzlehttp/guzzle": "5.*",
+        "guzzlehttp/guzzle": "^6.1",
         "phpcollection/phpcollection": "0.*"
     },
     "suggest": {
