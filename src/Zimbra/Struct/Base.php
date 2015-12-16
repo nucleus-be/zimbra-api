@@ -165,7 +165,7 @@ abstract class Base extends EventEmitter
      * Sets a property
      *
      * @param  string $name
-     * @param  mix $value
+     * @param  mixed $value
      * @return self
      */
     public function setProperty($name, $value)

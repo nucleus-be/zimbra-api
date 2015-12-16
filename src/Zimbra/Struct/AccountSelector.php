@@ -10,6 +10,7 @@
 
 namespace Zimbra\Struct;
 
+use Zimbra\Common\SimpleXML;
 use Zimbra\Enum\AccountBy;
 
 /**
@@ -24,11 +25,11 @@ class AccountSelector extends Base
 {
     /**
      * Constructor method for AccountSelector
-     * @param  AccountBy $by
+     * @param  string $by
      * @param  string $value
      * @return self
      */
-    public function __construct(AccountBy $by, $value = null)
+    public function __construct($by, $value = null)
     {
         parent::__construct(trim($value));
         $this->setProperty('by', $by);
@@ -37,7 +38,7 @@ class AccountSelector extends Base
     /**
      * Sets account by enum
      *
-     * @return AccountBy
+     * @return string
      */
     public function getBy()
     {
@@ -47,7 +48,7 @@ class AccountSelector extends Base
     /**
      * Gets account by enum
      *
-     * @param  AccountBy $by
+     * @param  string $by
      * @return self
      */
     public function setBy(AccountBy $by)
