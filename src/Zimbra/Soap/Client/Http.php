@@ -12,7 +12,8 @@ namespace Zimbra\Soap\Client;
 
 use Evenement\EventEmitter;
 use GuzzleHttp\Client as HttpClient;
-use GuzzleHttp\Message\Response;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
 use Zimbra\Enum\RequestFormat;
 use Zimbra\Soap\Message as SoapMessage;
 use Zimbra\Soap\Request as SoapRequest;
@@ -94,7 +95,7 @@ class Http extends EventEmitter implements ClientInterface
     public function __construct($location)
     {
         $this->location = $location;
-        $this->httpClient = new HttpClient;
+        $this->httpClient = new HttpClient();
     }
 
     /**
@@ -127,15 +128,11 @@ class Http extends EventEmitter implements ClientInterface
     public function __doRequest($request, array $headers = [])
     {
         $this->emit('before.request', [&$request, &$headers]);
-        $httpRequest = $this->httpClient->createRequest(
+        $httpRequest = new Request(
             'POST',
             $this->location,
-            [
-                'headers' => $headers,
-                'body' => (string) $request,
-                'cookies' => true,
-                'verify' => false,
-            ]
+            $headers,
+            (string) $request
         );
 
         $this->headers = $httpRequest->getHeaders();

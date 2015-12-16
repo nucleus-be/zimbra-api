@@ -17,6 +17,9 @@ namespace Zimbra\Enum;
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ *
+ * @method static ID
+ * @method static NAME
  */
 abstract class NameIdBy extends Base
 {

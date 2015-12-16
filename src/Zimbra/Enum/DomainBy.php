@@ -17,6 +17,10 @@ namespace Zimbra\Enum;
  * @category  Enum
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013 by Nguyen Van Nguyen.
+ *
+ * @method static VIRTUAL_HOSTNAME
+ * @method static KRB5_REALM
+ * @method static FOREIGN_NAME
  */
 class DomainBy extends NameIdBy
 {

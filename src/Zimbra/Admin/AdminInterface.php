@@ -97,7 +97,7 @@ interface AdminInterface
      *
      * @param  string $id    Value of zimbra identify.
      * @param  string $alias Account alias.
-     * @return mix
+     * @return mixed
      */
     function addAccountAlias($id, $alias);
 
@@ -111,7 +111,7 @@ interface AdminInterface
      *
      * @param  Logger $logger The Logger infor.
      * @param  Account $account The account.
-     * @return mix
+     * @return mixed
      */
     function addAccountLogger(Logger $logger, Account $account = null);
 
@@ -121,7 +121,7 @@ interface AdminInterface
      *
      * @param  string $id    Value of zimbra identify.
      * @param  string $alias Distribution list alias.
-     * @return mix
+     * @return mixed
      */
     function addDistributionListAlias($id, $alias);
 
@@ -131,7 +131,7 @@ interface AdminInterface
      *
      * @param  string $id   Value of zimbra identify.
      * @param  array  $dlms Distribution list members.
-     * @return mix
+     * @return mixed
      */
     function addDistributionListMember($id, array $dlms);
 
@@ -145,7 +145,7 @@ interface AdminInterface
      * @param  string $type   GalMode type (both|ldap|zimbra).
      * @param  string $folder Contact folder name.
      * @param  array  $attrs  Attributes.
-     * @return mix
+     * @return mixed
      */
     function addGalSyncDataSource(
         Account $account,
@@ -172,7 +172,7 @@ interface AdminInterface
      * @param  WaitSetSpec $add The WaitSet add spec.
      * @param  array $defTypes Default interest types.
      * @param  bool  $allAccounts If all is set, then all mailboxes on the system will be listened to, including any mailboxes which are created on the system while the WaitSet is in existence.
-     * @return mix
+     * @return mixed
      */
     function adminCreateWaitSet(
         WaitSetSpec $add = null,
@@ -187,7 +187,7 @@ interface AdminInterface
      * WaitSet: scalable mechanism for listening for changes to one or more accounts.
      *
      * @param  string $waitSet Waitset identify.
-     * @return mix
+     * @return mixed
      */
     function adminDestroyWaitSet($waitSet);
 
@@ -211,7 +211,7 @@ interface AdminInterface
      * @param bool   $block Flag whether or not to block until some account has new data.
      * @param array  $defTypes Default interest types.
      * @param int    $timeout Timeout length.
-     * @return mix
+     * @return mixed
      */
     function adminWaitSet(
         $waitSet,
@@ -286,7 +286,7 @@ interface AdminInterface
      * @param  SearchType $type Type of addresses to auto-complete on.
      * @param  string $galAcctId GAL Account ID.
      * @param  int    $limit An integer specifying the maximum number of results to return
-     * @return mix
+     * @return mixed
      */
     function autoCompleteGal(
         $domain,
@@ -302,7 +302,7 @@ interface AdminInterface
      * @param  Domain    $domain    The domain name.
      * @param  Principal $principal The name used to identify the principal.
      * @param  string    $password  Password.
-     * @return mix
+     * @return mixed
      */
     function autoProvAccount(Domain $domain, Principal $principal, $password = null);
 
@@ -317,7 +317,7 @@ interface AdminInterface
      * It is only for diagnosis purpose and should not be used under normal situations.
      *
      * @param  TaskAction $action Action to perform - one of start|status|stop
-     * @return mix
+     * @return mixed
      */
     function autoProvTaskControl(TaskAction $action);
 
@@ -327,7 +327,7 @@ interface AdminInterface
      * @param  string $name     Name.
      * @param  string $password Password.
      * @param  array  $attrs    Attributes.
-     * @return mix
+     * @return mixed
      */
     function checkAuthConfig($name, $password, array $attrs = []);
 
@@ -344,7 +344,7 @@ interface AdminInterface
      * @param array $mboxes Mailboxes.
      * @param bool  $checkSize Check size.
      * @param bool  $reportUsedBlobs If set a complete list of all blobs used by the mailbox(es) is returned.
-     * @return mix
+     * @return mixed
      */
     function checkBlobConsistency(
         array $volumes = [],
@@ -357,7 +357,7 @@ interface AdminInterface
      * Check existence of one or more directories and optionally create them.
      *
      * @param  array $directories Directories.
-     * @return mix
+     * @return mixed
      */
     function checkDirectory(array $directories = []);
 
@@ -365,7 +365,7 @@ interface AdminInterface
      * Check Domain MX record.
      *
      * @param  Domain $domain The name used to identify the domain.
-     * @return mix
+     * @return mixed
      */
     function checkDomainMXRecord(Domain $domain);
 
@@ -373,7 +373,7 @@ interface AdminInterface
      * Check Exchange Authorisation.
      *
      * @param  Exchange $auth Exchange auth details.
-     * @return mix
+     * @return mixed
      */
     function checkExchangeAuth(Exchange $auth);
 
@@ -395,7 +395,7 @@ interface AdminInterface
      * @param  LimitedQuery  $query  Description for element text content.
      * @param  ConfigAction  $action Action (autocomplete|search|sync).
      * @param  array   $attrs  Attributes.
-     * @return mix
+     * @return mixed
      */
     function checkGalConfig(
         LimitedQuery $query = null,
@@ -406,7 +406,7 @@ interface AdminInterface
     /**
      * Check Health.
      *
-     * @return mix
+     * @return mixed
      */
     function checkHealth();
 
@@ -414,7 +414,7 @@ interface AdminInterface
      * Check whether a hostname can be resolved.
      *
      * @param  string $hostname Hostname.
-     * @return mix
+     * @return mixed
      */
     function checkHostnameResolve($hostname = '');
 
@@ -425,7 +425,7 @@ interface AdminInterface
      *
      * @param  string $id       Zimbra identify.
      * @param  string $password Passowrd to check.
-     * @return mix
+     * @return mixed
      */
     function checkPasswordStrength($id, $password);
 
@@ -439,7 +439,7 @@ interface AdminInterface
      * @param Grantee $grantee The grantee
      * @param string  $right   Name of right.
      * @param array   $attrs   Attributes.
-     * @return mix
+     * @return mixed
      */
     function checkRight(
         Target $target,
@@ -452,7 +452,7 @@ interface AdminInterface
      * Clear cookie.
      *
      * @param  array $cookies Specifies cookies to clean.
-     * @return mix
+     * @return mixed
      */
     function clearCookie(array $cookies = []);
 
@@ -463,7 +463,7 @@ interface AdminInterface
      *
      * @param  MailboxId $mbox Mailbox.
      * @param  IndexAction $action Action to perform (start|status).
-     * @return mix
+     * @return mixed
      */
     function compactIndex(MailboxId $mbox, IndexAction $action = null);
 
@@ -474,7 +474,7 @@ interface AdminInterface
      * The request handler updates the zimbraAggregateQuotaLastUsage domain attribute
      * and sends out warning messages for each domain having quota usage greater than a defined percentage threshold.
      *
-     * @return mix
+     * @return mixed
      */
     function computeAggregateQuotaUsage();
 
@@ -482,7 +482,7 @@ interface AdminInterface
      * Configure Zimlet.
      *
      * @param  string $content Attachment identify.
-     * @return mix
+     * @return mixed
      */
     function configureZimlet(Attachment $content);
 
@@ -491,7 +491,7 @@ interface AdminInterface
      *
      * @param  string $name Destination name for COS.
      * @param  string $cos  Source COS.
-     * @return mix
+     * @return mixed
      */
     function copyCos($name = null, Cos $cos = null);
 
@@ -501,7 +501,7 @@ interface AdminInterface
      *       nor does it include any calendar resources.
      *
      * @param  string $domain The name used to identify the domain.
-     * @return mix
+     * @return mixed
      */
     function countAccount(Domain $domain = null);
 
@@ -517,7 +517,7 @@ interface AdminInterface
      * @param ObjType $type  Object type. Valid values: (userAccount|account|alias|dl|domain|cos|server|calresource|accountOnUCService|cosOnUCService|domainOnUCService|internalUserAccount|internalArchivingAccount).
      * @param Domain $domain The name used to identify the domain.
      * @param UcService $ucservice Key for choosing ucservice.
-     * @return mix
+     * @return mixed
      */
     function countObjects(ObjType $type, Domain $domain = null, UcService $ucservice = null);
 
@@ -532,7 +532,7 @@ interface AdminInterface
      * @param  string $name     New account's name. Must include domain (uid@name), and domain specified in name must exist.
      * @param  string $password New account's password.
      * @param  array  $attrs    Attributes.
-     * @return mix
+     * @return mixed
      */
     function createAccount($name, $password, array $attrs = []);
 
@@ -546,7 +546,7 @@ interface AdminInterface
      * @param  string $name     Name or calendar resource. Must include domain (uid@domain), and domain specified after @ must exist.
      * @param  string $password Password for calendar resource.
      * @param  array  $attrs    Attributes.
-     * @return mix
+     * @return mixed
      */
     function createCalendarResource($name = null, $password = null, array $attrs = []);
 
@@ -557,7 +557,7 @@ interface AdminInterface
      *
      * @param  string $name  COS name.
      * @param  array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function createCos($name, array $attrs = []);
 
@@ -570,7 +570,7 @@ interface AdminInterface
      *
      * @param  string $id    ID for an existing Account.
      * @param  DataSource $dataSource  Details of data source.
-     * @return mix
+     * @return mixed
      */
     function createDataSource($id, DataSource $dataSource);
 
@@ -583,7 +583,7 @@ interface AdminInterface
      * @param  string $name    Name for distribution list.
      * @param  bool   $dynamic If 1 (true) then create a dynamic distribution list.
      * @param  array  $attrs   Attributes.
-     * @return mix
+     * @return mixed
      */
     function createDistributionList($name, $dynamic = null, array $attrs = []);
 
@@ -594,7 +594,7 @@ interface AdminInterface
      *
      * @param  string $name  Name of new domain.
      * @param  array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function createDomain($name, array $attrs = []);
 
@@ -616,7 +616,7 @@ interface AdminInterface
      * @param string $password Password.
      * @param string $folder Contact folder name.
      * @param array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function createGalSyncAccount(
         Account $account,
@@ -634,7 +634,7 @@ interface AdminInterface
      *
      * @param  string $dn    A valid LDAP DN String (RFC 2253) that describes the new DN to create.
      * @param  array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function createLDAPEntry($dn, array $attrs = []);
 
@@ -644,7 +644,7 @@ interface AdminInterface
      *
      * @param  string $name  New server name.
      * @param  array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function createServer($name, array $attrs = []);
 
@@ -656,7 +656,7 @@ interface AdminInterface
      * @param  string $cos   The name used to identify the COS.
      * @param  PolicyHolder $keep  Keep policy details.
      * @param  PolicyHolder $purge Purge policy details.
-     * @return mix
+     * @return mixed
      */
     function createSystemRetentionPolicy(Cos $cos = null, PolicyHolder $keep = null, PolicyHolder $purge = null);
 
@@ -665,7 +665,7 @@ interface AdminInterface
      *
      * @param  string $name  New ucservice name.
      * @param  array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function createUCService($name, array $attrs = []);
 
@@ -673,7 +673,7 @@ interface AdminInterface
      * Create a volume.
      *
      * @param  Volume $volume Volume information.
-     * @return mix
+     * @return mixed
      */
     function createVolume(Volume $volume);
 
@@ -681,7 +681,7 @@ interface AdminInterface
      * Create an XMPP component.
      *
      * @param  Xmpp $xmpp XMPP Component details.
-     * @return mix
+     * @return mixed
      */
     function createXMPPComponent(Xmpp $xmpp);
 
@@ -690,7 +690,7 @@ interface AdminInterface
      *
      * @param  string $name  Zimlet name.
      * @param  array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function createZimlet($name, array $attrs = []);
 
@@ -699,7 +699,7 @@ interface AdminInterface
      *
      * @param  DedupAction $action  Action to perform - one of start|status|stop.
      * @param  array  $volumes Volumes.
-     * @return mix
+     * @return mixed
      */
     function dedupeBlobs(DedupAction $action, array $volumes = []);
 
@@ -710,7 +710,7 @@ interface AdminInterface
      *
      * @param  Account $account  The name used to identify the account.
      * @param  long   $duration Lifetime in seconds of the newly-created authtoken. defaults to 1 hour. Can't be longer then zimbraAuthTokenLifetime.
-     * @return mix
+     * @return mixed
      */
     function delegateAuth(Account $account, $duration = null);
 
@@ -722,7 +722,7 @@ interface AdminInterface
      *   1. this request is by default proxied to the account's home server.
      *
      * @param  string $id  Zimbra identify.
-     * @return mix
+     * @return mixed
      */
     function deleteAccount($id);
 
@@ -732,7 +732,7 @@ interface AdminInterface
      * Access: domain admin sufficient.
      *
      * @param  string $id  Zimbra identify.
-     * @return mix
+     * @return mixed
      */
     function deleteCalendarResource($id);
 
@@ -740,7 +740,7 @@ interface AdminInterface
      * Delete a Class of Service (COS).
      *
      * @param  string $id  Zimbra identify.
-     * @return mix
+     * @return mixed
      */
     function deleteCos($id);
 
@@ -751,7 +751,7 @@ interface AdminInterface
      * @param  string $id     ID for an existing Account.
      * @param  Id $dataSource Data source ID.
      * @param  array  $attrs  Attributes.
-     * @return mix
+     * @return mixed
      */
     function deleteDataSource($id, Id $dataSource, array $attrs = []);
 
@@ -760,7 +760,7 @@ interface AdminInterface
      * Access: domain admin sufficient.
      *
      * @param  string $id Zimbra ID for distribution list.
-     * @return mix
+     * @return mixed
      */
     function deleteDistributionList($id);
 
@@ -768,7 +768,7 @@ interface AdminInterface
      * Delete a domain.
      *
      * @param  string $id Zimbra ID for domain.
-     * @return mix
+     * @return mixed
      */
     function deleteDomain($id);
 
@@ -777,7 +777,7 @@ interface AdminInterface
      * Remove its zimbraGalAccountID from the domain, then deletes the account.
      *
      * @param  Account $account The name used to identify the account.
-     * @return mix
+     * @return mixed
      */
     function deleteGalSyncAccount(Account $account);
 
@@ -785,7 +785,7 @@ interface AdminInterface
      * Delete an LDAP entry.
      *
      * @param  string $dn A valid LDAP DN String (RFC 2253) that describes the DN to delete.
-     * @return mix
+     * @return mixed
      */
     function deleteLDAPEntry($dn);
 
@@ -798,7 +798,7 @@ interface AdminInterface
      * Access: domain admin sufficient
      *
      * @param  MailboxId $id Account ID.
-     * @return mix
+     * @return mixed
      */
     function deleteMailbox(MailboxId $id);
 
@@ -807,7 +807,7 @@ interface AdminInterface
      * Note: this request is by default proxied to the referenced server.
      *
      * @param  string $id Zimbra ID.
-     * @return mix
+     * @return mixed
      */
     function deleteServer($id);
 
@@ -816,7 +816,7 @@ interface AdminInterface
      *
      * @param  Policy  $policy Retention policy.
      * @param  Cos $cos The name used to identify the COS.
-     * @return mix
+     * @return mixed
      */
     function deleteSystemRetentionPolicy(Policy $policy, Cos $cos = null);
 
@@ -824,7 +824,7 @@ interface AdminInterface
      * Delete a UC service.
      *
      * @param  string $id Zimbra ID.
-     * @return mix
+     * @return mixed
      */
     function deleteUCService($id);
 
@@ -832,7 +832,7 @@ interface AdminInterface
      * Delete a UC service.
      *
      * @param  string $id Volume ID.
-     * @return mix
+     * @return mixed
      */
     function deleteVolume($id);
 
@@ -840,7 +840,7 @@ interface AdminInterface
      * Delete an XMPP Component.
      *
      * @param  XmppComponent $xmpp The name used to identify the XMPP component.
-     * @return mix
+     * @return mixed
      */
     function deleteXMPPComponent(XmppComponent $xmpp);
 
@@ -848,7 +848,7 @@ interface AdminInterface
      * Delete a Zimlet.
      *
      * @param  NamedElement $zimlet Zimlet name.
-     * @return mix
+     * @return mixed
      */
     function deleteZimlet(NamedElement $zimlet);
 
@@ -859,7 +859,7 @@ interface AdminInterface
      * @param  Attachment $aid Attachment ID.
      * @param  bool $flush Flag whether to flush the cache.
      * @param  bool $synchronous Synchronous flag.
-     * @return mix
+     * @return mixed
      */
     function deployZimlet(
         DeployAction $action,
@@ -873,7 +873,7 @@ interface AdminInterface
      *
      * @param  bool $list List Sessions flag.
      * @param  bool $groupBy Group by account flag.
-     * @return mix
+     * @return mixed
      */
     function dumpSessions($list = null, $groupBy = null);
 
@@ -888,7 +888,7 @@ interface AdminInterface
      * @param  Mailbox $mbox     Mailbox.
      * @param  string $exportDir Path for export dir.
      * @param  string $exportFilenamePrefix Export filename prefix.
-     * @return mix
+     * @return mixed
      */
     function exportAndDeleteItems(ExportMailbox $mbox, $exportDir = null, $exportFilenamePrefix = null);
 
@@ -897,7 +897,7 @@ interface AdminInterface
      *
      * @param  bool  $sync    Sync flag.
      * @param  array $accounts Account names.
-     * @return mix
+     * @return mixed
      */
     function fixCalendarEndTime($sync = null, array $accounts = []);
 
@@ -906,7 +906,7 @@ interface AdminInterface
      *
      * @param  bool  $sync    Sync flag.
      * @param  array $account Account names.
-     * @return mix
+     * @return mixed
      */
     function fixCalendarPriority($sync = null, array $accounts = []);
 
@@ -918,7 +918,7 @@ interface AdminInterface
      * @param  TzFixup $fixupRules Fixup rules.
      * @param  bool  $sync    Sync flag.
      * @param  int   $after   Fix appts/tasks that have instances after this time, default = January 1, 2008 00:00:00 in GMT+13:00 timezone.
-     * @return mix
+     * @return mixed
      */
     function fixCalendarTZ(
         array $account = [],
@@ -939,7 +939,7 @@ interface AdminInterface
      * E.g. type='skin,locale,zimlet' or type='zimletskin'.
      *
      * @param  Cache $cache Cache.
-     * @return mix
+     * @return mixed
      */
     function flushCache(Cache $cache = null);
 
@@ -957,7 +957,7 @@ interface AdminInterface
      * @param string $oU Subject attr OU
      * @param string $cN Subject attr CN
      * @param array $subjectAltName Used to add the Subject Alt Name extension in the certificate, so multiple hosts can be supported
-     * @return mix
+     * @return mixed
      */
     function genCSR(
         $server,
@@ -982,7 +982,7 @@ interface AdminInterface
      * @param  Account $account  The name used to identify the account.
      * @param  bool    $applyCos Flag whether or not to apply class of service (COS) rules.
      * @param  string  $attrs    Comma separated list of attributes.
-     * @return mix
+     * @return mixed
      */
     function getAccount(Account $account = null, $applyCos = null, $attrs = null);
 
@@ -994,7 +994,7 @@ interface AdminInterface
      * Access: domain admin sufficient
      *
      * @param  Account $account The name used to identify the account.
-     * @return mix
+     * @return mixed
      */
     function getAccountInfo(Account $account);
 
@@ -1004,7 +1004,7 @@ interface AdminInterface
      * it is proxied to the correct server.
      *
      * @param  Account $account  The name used to identify the account.
-     * @return mix
+     * @return mixed
      */
     function getAccountLoggers(Account $account = null);
 
@@ -1012,7 +1012,7 @@ interface AdminInterface
      * Get distribution lists an account is a member of.
      *
      * @param  Account $account The name used to identify the account.
-     * @return mix
+     * @return mixed
      */
     function getAccountMembership(Account $account);
 
@@ -1021,14 +1021,14 @@ interface AdminInterface
      *
      * @param  Account  $account The name used to identify the account.
      * @param  DistList $dl      The name used to identify the distribution list.
-     * @return mix
+     * @return mixed
      */
     function getAdminConsoleUIComp(Account $account = null, DistList $dl = null);
 
     /**
      * Returns the admin extension addon Zimlets.
      *
-     * @return mix
+     * @return mixed
      */
     function getAdminExtensionZimlets();
 
@@ -1037,14 +1037,14 @@ interface AdminInterface
      * If no <search> is present server will return all saved searches.
      *
      * @param  array $searches Array of search information
-     * @return mix
+     * @return mixed
      */
     function getAdminSavedSearches(array $searches = []);
 
     /**
      * Gets the aggregate quota usage for all domains on the server.
      *
-     * @return mix
+     * @return mixed
      */
     function getAggregateQuotaUsageOnServer();
 
@@ -1052,7 +1052,7 @@ interface AdminInterface
      * Returns all account loggers that have been created on the given server
      * since the last server start.
      *
-     * @return mix
+     * @return mixed
      */
     function getAllAccountLoggers();
 
@@ -1062,7 +1062,7 @@ interface AdminInterface
      *
      * @param  Server $server The server name.
      * @param  Domain $domain The domain name.
-     * @return mix
+     * @return mixed
      */
     function getAllAccounts(Server $server = null, Domain $domain = null);
 
@@ -1070,7 +1070,7 @@ interface AdminInterface
      * Get all Admin accounts.
      *
      * @param  string $applyCos Apply COS.
-     * @return mix
+     * @return mixed
      */
     function getAllAdminAccounts($applyCos = null);
 
@@ -1080,21 +1080,21 @@ interface AdminInterface
      *
      * @param  Server $server The server name.
      * @param  Domain $domain The domain name.
-     * @return mix
+     * @return mixed
      */
     function getAllCalendarResources(Server $server = null, Domain $domain = null);
 
     /**
      * Get all config.
      *
-     * @return mix
+     * @return mixed
      */
     function getAllConfig();
 
     /**
      * Get all classes of service (COS).
      *
-     * @return mix
+     * @return mixed
      */
     function getAllCos();
 
@@ -1103,7 +1103,7 @@ interface AdminInterface
      * Access: domain admin sufficient.
      *
      * @param  Domain $domain The domain name.
-     * @return mix
+     * @return mixed
      */
     function getAllDistributionLists(Domain $domain = null);
 
@@ -1111,7 +1111,7 @@ interface AdminInterface
      * Get all domains.
      *
      * @param  bool $applyConfig Apply config flag.
-     * @return mix
+     * @return mixed
      */
     function getAllDomains($applyConfig = null);
 
@@ -1120,21 +1120,21 @@ interface AdminInterface
      *
      * @param  Grantee $grantee The name used to identify the grantee.
      * @param  bool $expandAllAttrs Flags whether to include all attribute names if the right is meant for all attributes.
-     * @return mix
+     * @return mixed
      */
     function getAllEffectiveRights(Grantee $grantee = null, $expandAllAttrs = null);
 
     /**
      * Get all free/busy providers.
      *
-     * @return mix
+     * @return mixed
      */
     function getAllFreeBusyProviders();
 
     /**
      * Get all free/busy providers.
      *
-     * @return mix
+     * @return mixed
      */
     function getAllLocales();
 
@@ -1144,7 +1144,7 @@ interface AdminInterface
      *
      * @param  integer $limit  The number of mailboxes to return (0 is default and means all).
      * @param  integer $offset The starting offset (0, 25, etc).
-     * @return mix
+     * @return mixed
      */
     function getAllMailboxes($limit = null, $offset = null);
 
@@ -1154,7 +1154,7 @@ interface AdminInterface
      * @param  string $targetType Target type on which a right is grantable.
      * @param  bool $expandAllAttrs Flags whether to include all attribute names in the <attrs> elements in GetRightResponse if the right is meant for all attributes.
      * @param  RightClass $rightClass Right class to return (ADMIN|USER|ALL).
-     * @return mix
+     * @return mixed
      */
     function getAllRights(
         $targetType = null, $expandAllAttrs = null, RightClass $rightClass = null
@@ -1169,42 +1169,42 @@ interface AdminInterface
      *
      * @param  string $service Service name. e.g. mta, antispam, spell.
      * @param  bool   $apply   Apply config flag.
-     * @return mix
+     * @return mixed
      */
     function getAllServers($service = null, $applyConfig = null);
 
     /**
      * Get all installed skins on the server.
      *
-     * @return mix
+     * @return mixed
      */
     function getAllSkins();
 
     /**
      * Returns all installed UC providers and applicable UC service attributes for each provider.
      *
-     * @return mix
+     * @return mixed
      */
     function getAllUCProviders();
 
     /**
      * Get all ucservices defined in the system.
      *
-     * @return mix
+     * @return mixed
      */
     function getAllUCServices();
 
     /**
      * Get all volumes.
      *
-     * @return mix
+     * @return mixed
      */
     function getAllVolumes();
 
     /**
      * Get all XMPP components.
      *
-     * @return mix
+     * @return mixed
      */
     function getAllXMPPComponents();
 
@@ -1212,7 +1212,7 @@ interface AdminInterface
      * Get all Zimlets.
      *
      * @param  ExcludeType $exclude Can be "none|extension|mail". extension: return only mail Zimlets. mail: return only admin extensions. none [default]: return both mail and admin zimlets.
-     * @return mix
+     * @return mixed
      */
     function getAllZimlets(ExcludeType $exclude = null);
 
@@ -1225,7 +1225,7 @@ interface AdminInterface
      *
      * @param  string $attrs      Comma separated list of attributes to return.
      * @param  array  $entryTypes Attributes on the specified entry types will be returned.
-     * @return mix
+     * @return mixed
      */
     function getAttributeInfo($attrs = null, array $entryTypes = []);
 
@@ -1236,7 +1236,7 @@ interface AdminInterface
      * @param  CalendarResource $calResource Specify calendar resource.
      * @param  bool $applyCos Flag whether to apply Class of Service (COS).
      * @param  string $attrs Comma separated list of attributes.
-     * @return mix
+     * @return mixed
      */
     function getCalendarResource(CalendarResource $calResource = null, $applyCos = null, $attrs = null);
 
@@ -1248,7 +1248,7 @@ interface AdminInterface
      * @param  string $server The server's ID whose cert is to be got.
      * @param  CertType $type Certificate type. Value: staged - view the staged crt. Other options (all, mta, ldap, mailboxd, proxy) are used to view the deployed crt
      * @param  CSRType $option Required only when type is "staged". Could be "self" (self-signed cert) or "comm" (commerical cert).
-     * @return mix
+     * @return mixed
      */
     function getCert($server, CertType $type, CSRType $option = null);
 
@@ -1256,7 +1256,7 @@ interface AdminInterface
      * Get Config request.
      *
      * @param  KeyValuePair $attr Attribute.
-     * @return mix
+     * @return mixed
      */
     function getConfig(KeyValuePair $attr = null);
 
@@ -1265,7 +1265,7 @@ interface AdminInterface
      *
      * @param  Cos $cos The name used to identify the COS.
      * @param  string $attrs Comma separated list of attributes.
-     * @return mix
+     * @return mixed
      */
     function getCos(Cos $cos = null, $attrs = null);
 
@@ -1283,7 +1283,7 @@ interface AdminInterface
      * @param  TargetWithType $target Target.
      * @param  Domain $domain The name used to identify the domain.
      * @param  Cos $cos The name used to identify the COS..
-     * @return mix
+     * @return mixed
      */
     function getCreateObjectAttrs(TargetWithType $target, Domain $domain = null, Cos $cos = null);
 
@@ -1292,14 +1292,14 @@ interface AdminInterface
      *
      * @param  string $server Server ID. Can be "--- All Servers ---" or the ID of a server.
      * @param  CSRType $type Type of CSR (required). Value: self mean self-signed certificate; comm mean commercial certificate
-     * @return mix
+     * @return mixed
      */
     function getCSR($server = null, CSRType $type = null);
 
     /**
      * Get current volumes.
      *
-     * @return mix
+     * @return mixed
      */
     function getCurrentVolumes();
 
@@ -1310,7 +1310,7 @@ interface AdminInterface
      *
      * @param  string $id    Account ID for an existing account.
      * @param  array  $attrs Array of attributes.
-     * @return mix
+     * @return mixed
      */
     function getDataSources($id, array $attrs = []);
 
@@ -1325,7 +1325,7 @@ interface AdminInterface
      * @param  string $id    ID of target.
      * @param  string $name  Name of target.
      * @param  array  $attrs Array of name.
-     * @return mix
+     * @return mixed
      */
     function getDelegatedAdminConstraints(
         TargetType $type,
@@ -1338,7 +1338,7 @@ interface AdminInterface
      * Get devices.
      *
      * @param  Account $account The name used to identify the account.
-     * @return mix
+     * @return mixed
      */
     function getDevices(Account $account);
 
@@ -1350,7 +1350,7 @@ interface AdminInterface
      * @param  integer  $offset The starting offset (0, 25 etc).
      * @param  bool     $sortAscending Flag whether to sort in ascending order 1 (true) is the default.
      * @param  array    $attrs  Attributes.
-     * @return mix
+     * @return mixed
      */
     function getDistributionList(
         DistList $dl = null,
@@ -1366,7 +1366,7 @@ interface AdminInterface
      * @param  DistList $dl     The name used to identify the distribution list.
      * @param  integer  $limit  The maximum number of DLs to return (0 is default and means all).
      * @param  integer  $offset The starting offset (0, 25 etc).
-     * @return mix
+     * @return mixed
      */
     function getDistributionListMembership(
         DistList $dl = null,
@@ -1380,7 +1380,7 @@ interface AdminInterface
      * @param  Domain $domain The name used to identify the domain.
      * @param  bool   $applyConfig Apply config flag. True, then certain unset attrs on a domain will get their values from the global config. False, then only attributes directly set on the domain will be returned.
      * @param  string $attrs  Attributes.
-     * @return mix
+     * @return mixed
      */
     function getDomain(Domain $domain = null, $applyConfig = null, $attrs = null);
 
@@ -1393,7 +1393,7 @@ interface AdminInterface
      * 
      * @param  Domain $domain The name used to identify the domain.
      * @param  bool   $applyConfig Apply config flag. True, then certain unset attrs on a domain will get their values from the global config. False, then only attributes directly set on the domain will be returned.
-     * @return mix
+     * @return mixed
      */
     function getDomainInfo(Domain $domain = null, $applyConfig = null);
 
@@ -1411,7 +1411,7 @@ interface AdminInterface
      *                         1. getAttrs: expand attrs in getAttrs in the response
      *                         2. setAttrs: expand attrs in setAttrs in the response
      *                         3. getAttrs,setAttrs: expand attrs in both getAttrs and setAttrs in the response
-     * @return mix
+     * @return mixed
      */
     function getEffectiveRights(
         Target $target,
@@ -1425,7 +1425,7 @@ interface AdminInterface
      * If no provider is supplied in the request, the response contains all the providers.
      * 
      * @param  NamedElement $provider Provider name.
-     * @return mix
+     * @return mixed
      */
     function getFreeBusyQueueInfo(NamedElement $provider);
 
@@ -1440,7 +1440,7 @@ interface AdminInterface
      * 
      * @param  Target $target The name used to identify the target.
      * @param  Grantee $grantee Grantee.
-     * @return mix
+     * @return mixed
      */
     function getGrants(Target $target = null, Grantee $grantee = null);
 
@@ -1448,7 +1448,7 @@ interface AdminInterface
      * Get index statistics.
      * 
      * @param  MailboxId $id  Mailbox account ID.
-     * @return mix
+     * @return mixed
      */
     function getIndexStats(MailboxId $mbox);
 
@@ -1461,7 +1461,7 @@ interface AdminInterface
      * @param  bool    $sortAscending Flag whether to sort in ascending order 1 (true) is default.
      * @param  integer $limit Limit - the maximum number of LDAP objects (records) to return (0 is default and means all).
      * @param  integer $offset The starting offset (0, 25, etc).
-     * @return mix
+     * @return mixed
      */
     function getLDAPEntries(
         $query,
@@ -1475,7 +1475,7 @@ interface AdminInterface
     /**
      * Get License information.
      * 
-     * @return mix
+     * @return mixed
      */
     function getLicenseInfo();
 
@@ -1495,7 +1495,7 @@ interface AdminInterface
      * @param  StatsSpec $stats Stats specification.
      * @param  TimeAttr $startTime Start time.
      * @param  TimeAttr $endTime   End time .
-     * @return mix
+     * @return mixed
      */
     function getLoggerStats(
         HostName $hostname = null,
@@ -1509,14 +1509,14 @@ interface AdminInterface
      * Note: this request is by default proxied to the account's home server.
      * 
      * @param  MailboxId $id Mailbox account ID.
-     * @return mix
+     * @return mixed
      */
     function getMailbox(MailboxId $mbox);
 
     /**
      * Get MailBox Statistics.
      * 
-     * @return mix
+     * @return mixed
      */
     function getMailboxStats();
 
@@ -1538,7 +1538,7 @@ interface AdminInterface
      * The more-flag in the response indicates that more qi's are available past the limit specified in the request.
      * 
      * @param  ServerMail  $server Server Mail Queue Query.
-     * @return mix
+     * @return mixed
      */
     function getMailQueue(ServerMail $server);
 
@@ -1548,14 +1548,14 @@ interface AdminInterface
      * - client should invoke requests for different servers in parallel.
      * 
      * @param  NamedElement $server MTA server name.
-     * @return mix
+     * @return mixed
      */
     function getMailQueueInfo(NamedElement $server);
 
     /**
      * Returns the memcached client configuration on a mailbox server.
      * 
-     * @return mix
+     * @return mixed
      */
     function getMemcachedClientConfig();
 
@@ -1569,7 +1569,7 @@ interface AdminInterface
      * @param  QuotaSortBy $sortBy SortBy - valid values: "percentUsed", "totalUsed", "quotaLimit".
      * @param  bool    $sortAscending Whether to sort in ascending order 0 (false) is default, so highest quotas are returned first.
      * @param  bool    $refresh Refresh - whether to always recalculate the data even when cached values are available. 0 (false) is the default..
-     * @return mix
+     * @return mixed
      */
     function getQuotaUsage(
         $domain = null,
@@ -1588,7 +1588,7 @@ interface AdminInterface
      * @param  bool   $expandAllAttrs Whether to include all attribute names in the <attrs> elements in the response if the right is meant for all attributes.
      *                        0 (false) [default] default, do not include all attribute names in the <attrs> elements.
      *                        1 (true)  include all attribute names in the <attrs> elements.
-     * @return mix
+     * @return mixed
      */
     function getRight($right, $expandAllAttrs = null);
 
@@ -1596,7 +1596,7 @@ interface AdminInterface
      * Get Rights Document.
      * 
      * @param  array $packages Packages.
-     * @return mix
+     * @return mixed
      */
     function getRightsDoc(array $packages = []);
 
@@ -1608,7 +1608,7 @@ interface AdminInterface
      *                        If {apply} is 1 (true), then certain unset attrs on a server will get their values from the global config. 
      *                        if {apply} is 0 (false), then only attributes directly set on the server will be returned.
      * @param  string  $attrs Comma separated list of attributes.
-     * @return mix
+     * @return mixed
      */
     function getServer(Server $server = null, $applyConfig = null, $attrs = null);
 
@@ -1619,7 +1619,7 @@ interface AdminInterface
      * 
      * @param  Server $server Server name.
      * @param  IpType $type   Specifics the ipAddress type (ipV4/ipV6/both). default is ipv4.
-     * @return mix
+     * @return mixed
      */
     function getServerNIfs(Server $server, IpType $type = null);
 
@@ -1630,14 +1630,14 @@ interface AdminInterface
      * If the stat name is invalid, returns a SOAP fault.
      * 
      * @param  array $stats Stats.
-     * @return mix
+     * @return mixed
      */
     function getServerStats(array $stats = []);
 
     /**
      * Get Service Status.
      * 
-     * @return mix
+     * @return mixed
      */
     function getServiceStatus();
 
@@ -1650,7 +1650,7 @@ interface AdminInterface
      * @param  integer $limit Limit - the number of sessions to return per page (0 is default and means all).
      * @param  integer $offset Offset - the starting offset (0, 25, etc).
      * @param  bool    $refresh Refresh. If 1 (true), ignore any cached results and start fresh..
-     * @return mix
+     * @return mixed
      */
     function getSessions(
         SessionType $type,
@@ -1668,7 +1668,7 @@ interface AdminInterface
      * @param  string $type  If specified, filters the result by the specified grantee type.
      * @param  string $name  If specified, filters the result by the specified grantee name.
      * @param  string $id    If specified, filters the result by the specified grantee ID.
-     * @return mix
+     * @return mixed
      */
     function getShareInfo(Account $owner, GranteeChooser $grantee = null);
 
@@ -1678,7 +1678,7 @@ interface AdminInterface
      * to edit named system retention policies that users can apply to folders and tags.
      * 
      * @param  string $cos The name used to identify the COS.
-     * @return mix
+     * @return mixed
      */
     function getSystemRetentionPolicy(Cos $cos = null);
 
@@ -1687,14 +1687,14 @@ interface AdminInterface
      * 
      * @param  UcService $ucservice UC Service name.
      * @param  string $attrs Comma separated list of attributes.
-     * @return mix
+     * @return mixed
      */
     function getUCService(UcService $ucservice = null, $attrs = null);
 
     /**
      * Get Version information.
      * 
-     * @return mix
+     * @return mixed
      */
     function getVersionInfo();
 
@@ -1702,7 +1702,7 @@ interface AdminInterface
      * Get Volume.
      * 
      * @param  int $id ID of volume.
-     * @return mix
+     * @return mixed
      */
     function getVolume($id);
 
@@ -1712,7 +1712,7 @@ interface AdminInterface
      * 
      * @param  XmppComponent $xmpp XMPP Component selector.
      * @param  string $attrs Comma separated list of attributes.
-     * @return mix
+     * @return mixed
      */
     function getXMPPComponent(XmppComponent $xmpp, $attrs = null);
 
@@ -1721,7 +1721,7 @@ interface AdminInterface
      * 
      * @param  NamedElement $name Zimlet name.
      * @param  string $attrs Comma separated list of attributes.
-     * @return mix
+     * @return mixed
      */
     function getZimlet(NamedElement $name, $attrs = null);
 
@@ -1734,7 +1734,7 @@ interface AdminInterface
      * The same Zimlet will show priority 0 if all by itself,
      * or priority 3 if there are three other Zimlets with higher priority.
      * 
-     * @return mix
+     * @return mixed
      */
     function getZimletStatus();
 
@@ -1744,7 +1744,7 @@ interface AdminInterface
      * @param  Target $target  Target selector. The name used to identify the target.
      * @param  Grantee  $grantee Grantee selector.
      * @param  RightModifier  $right   Right selector.
-     * @return mix
+     * @return mixed
      */
     function grantRight(
         Target $target,
@@ -1758,7 +1758,7 @@ interface AdminInterface
      * list-of-ids can be ALL.
      * 
      * @param  ServerQueue $server Server Mail Queue Query.
-     * @return mix
+     * @return mixed
      */
     function mailQueueAction(ServerQueue $server);
 
@@ -1768,7 +1768,7 @@ interface AdminInterface
      * this is a global operation to all the queues in a given server.
      * 
      * @param  NamedElement $server MTA server.
-     * @return mix
+     * @return mixed
      */
     function mailQueueFlush(NamedElement $server);
 
@@ -1776,7 +1776,7 @@ interface AdminInterface
      * Migrate an account.
      * 
      * @param  IdAndAction $migrate Specification for the migration.
-     * @return mix
+     * @return mixed
      */
     function migrateAccount(IdAndAction $migrate);
 
@@ -1785,7 +1785,7 @@ interface AdminInterface
      * 
      * @param  string $id    Zimbra ID of account.
      * @param  array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function modifyAccount($id, array $attrs = []);
 
@@ -1797,7 +1797,7 @@ interface AdminInterface
      * If {search-name} does not exist => save as a new search.
      * 
      * @param  array $searchs Array of NamedValue.
-     * @return mix
+     * @return mixed
      */
     function modifyAdminSavedSearches(array $searchs = []);
 
@@ -1810,7 +1810,7 @@ interface AdminInterface
      * 
      * @param  string $id    Zimbra ID.
      * @param  array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function modifyCalendarResource($id, array $attrs = []);
 
@@ -1819,7 +1819,7 @@ interface AdminInterface
      * Note: an empty attribute value removes the specified attr.
      * 
      * @param  array $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function modifyConfig(array $attrs = []);
 
@@ -1829,7 +1829,7 @@ interface AdminInterface
      * 
      * @param  string $id    Zimbra ID.
      * @param  array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function modifyCos($id, array $attrs = []);
 
@@ -1842,7 +1842,7 @@ interface AdminInterface
      * @param  string $id     Existing account ID.
      * @param  Id $dataSource Data source  ID.
      * @param  array  $attrs  Attributes.
-     * @return mix
+     * @return mixed
      */
     function modifyDataSource($id, Id $dataSource, array $attrs = []);
 
@@ -1855,7 +1855,7 @@ interface AdminInterface
      * @param  string $id    ID.
      * @param  string $name  Name.
      * @param  array  $attrs Constaint attributes.
-     * @return mix
+     * @return mixed
      */
     function modifyDelegatedAdminConstraints(
         TargetType $type,
@@ -1871,7 +1871,7 @@ interface AdminInterface
      * 
      * @param  string $id    Zimbra ID.
      * @param  array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function modifyDistributionList($id, array $attrs = []);
 
@@ -1881,7 +1881,7 @@ interface AdminInterface
      * 
      * @param  string $id    Zimbra ID.
      * @param  array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function modifyDomain($id, array $attrs = []);
 
@@ -1890,7 +1890,7 @@ interface AdminInterface
      * 
      * @param  string $dn    A valid LDAP DN String (RFC 2253) that identifies the LDAP object.
      * @param  array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function modifyLDAPEntry($dn, array $attrs = []);
 
@@ -1902,7 +1902,7 @@ interface AdminInterface
      * 
      * @param  string $id    Zimbra ID.
      * @param  array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function modifyServer($id, array $attrs = []);
 
@@ -1911,7 +1911,7 @@ interface AdminInterface
      * 
      * @param  Policy $policy New policy.
      * @param  Cos $cos The name used to identify the COS.
-     * @return mix
+     * @return mixed
      */
     function modifySystemRetentionPolicy(Policy $policy, Cos $cos = null);
 
@@ -1921,7 +1921,7 @@ interface AdminInterface
      * 
      * @param  string $id    Zimbra ID.
      * @param  array  $attrs Attributes.
-     * @return mix
+     * @return mixed
      */
     function modifyUCService($id, array $attrs = []);
 
@@ -1930,7 +1930,7 @@ interface AdminInterface
      * 
      * @param  string $id     Zimbra ID.
      * @param  Volume $volume Volume information.
-     * @return mix
+     * @return mixed
      */
     function modifyVolume($id, Volume $volume);
 
@@ -1938,7 +1938,7 @@ interface AdminInterface
      * Modify Zimlet.
      * 
      * @param  ZimletAcl $zimlet Zimlet information.
-     * @return mix
+     * @return mixed
      */
     function modifyZimlet(ZimletAcl $zimlet);
 
@@ -1946,14 +1946,14 @@ interface AdminInterface
      * A request that does nothing and always returns nothing.
      * Used to keep an admin session alive.
      * 
-     * @return mix
+     * @return mixed
      */
     function noOp();
 
     /**
      * Ping.
      * 
-     * @return mix
+     * @return mixed
      */
     function ping();
 
@@ -1962,7 +1962,7 @@ interface AdminInterface
      * Access: domain admin sufficient.
      * 
      * @param  string $id Zimbra ID.
-     * @return mix
+     * @return mixed
      */
     function purgeAccountCalendarCache($id);
 
@@ -1970,7 +1970,7 @@ interface AdminInterface
      * Purges the queue for the given freebusy provider on the current host.
      * 
      * @param  NamedElement $provider Provider name.
-     * @return mix
+     * @return mixed
      */
     function purgeFreeBusyQueue(NamedElement $provider = null);
 
@@ -1979,7 +1979,7 @@ interface AdminInterface
      * (if <mbox> element is omitted, purges all mailboxes on server).
      * 
      * @param  MailboxId $mbox Mailbox Account ID.
-     * @return mix
+     * @return mixed
      */
     function purgeMessages(MailboxId $mbox);
 
@@ -1993,7 +1993,7 @@ interface AdminInterface
      * 
      * @param  Names $domains Domain names specification.
      * @param  Id $account Account ID.
-     * @return mix
+     * @return mixed
      */
     function pushFreeBusy(Names $domain = null, Id $account = null);
 
@@ -2005,7 +2005,7 @@ interface AdminInterface
      * and might be removed without warning.
      * 
      * @param  string $waitSet WaitSet ID.
-     * @return mix
+     * @return mixed
      */
     function queryWaitSet($waitSet = null);
 
@@ -2017,7 +2017,7 @@ interface AdminInterface
      * Note: this request is by default proxied to the account's home server.
      * 
      * @param  MailboxId $mbox Specify reindexing to perform.
-     * @return mix
+     * @return mixed
      */
     function recalculateMailboxCounts(MailboxId $mbox);
 
@@ -2029,14 +2029,14 @@ interface AdminInterface
      * 
      * @param  ReindexMailbox $mbox  Specify reindexing to perform.
      * @param  ReIndexAction $action Action to perform.
-     * @return mix
+     * @return mixed
      */
     function reIndex(ReindexMailbox $mbox, ReIndexAction $action = null);
 
     /**
      * Reload LocalConfig.
      * 
-     * @return mix
+     * @return mixed
      */
     function reloadLocalConfig();
 
@@ -2045,7 +2045,7 @@ interface AdminInterface
      * Memcached client layer is reinitialized accordingly.
      * Call this command after updating the memcached server list, for example.
      * 
-     * @return mix
+     * @return mixed
      */
     function reloadMemcachedClientConfig();
 
@@ -2056,7 +2056,7 @@ interface AdminInterface
      * 
      * @param  string $alias Account alias.
      * @param  string $id    Zimbra ID.
-     * @return mix
+     * @return mixed
      */
     function removeAccountAlias($alias, $id = null);
 
@@ -2071,7 +2071,7 @@ interface AdminInterface
      * 
      * @param  Account $account Use to select account.
      * @param  Logger  $logger  Logger category.
-     * @return mix
+     * @return mixed
      */
     function removeAccountLogger(Account $account = null, Logger $logger = null);
 
@@ -2081,7 +2081,7 @@ interface AdminInterface
      * 
      * @param  Account  $account  Use to select account.
      * @param  DeviceId $deviceId Device specification - Note - if not supplied ALL devices will be removed.
-     * @return mix
+     * @return mixed
      */
     function removeDevice(Account $account, DeviceId $device = null);
 
@@ -2091,7 +2091,7 @@ interface AdminInterface
      * 
      * @param  string $id    Zimbra ID
      * @param  string $alias Distribution list alias.
-     * @return mix
+     * @return mixed
      */
     function removeDistributionListAlias($id, $alias);
 
@@ -2102,7 +2102,7 @@ interface AdminInterface
      * 
      * @param  string $id   Zimbra ID
      * @param  array  $dlms Members.
-     * @return mix
+     * @return mixed
      */
     function removeDistributionListMember($id, array $dlms);
 
@@ -2113,7 +2113,7 @@ interface AdminInterface
      * 
      * @param  string $id      Zimbra ID
      * @param  array  $newName New account name.
-     * @return mix
+     * @return mixed
      */
     function renameAccount($id, $newName);
 
@@ -2124,7 +2124,7 @@ interface AdminInterface
      * 
      * @param  string $id      Zimbra ID
      * @param  array  $newName New Calendar Resource name.
-     * @return mix
+     * @return mixed
      */
     function renameCalendarResource($id, $newName);
 
@@ -2133,7 +2133,7 @@ interface AdminInterface
      * 
      * @param  string $id      Zimbra ID
      * @param  array  $newName New COS name.
-     * @return mix
+     * @return mixed
      */
     function renameCos($id, $newName);
 
@@ -2143,7 +2143,7 @@ interface AdminInterface
      * 
      * @param  string $id      Zimbra ID
      * @param  array  $newName New Distribution List name.
-     * @return mix
+     * @return mixed
      */
     function renameDistributionList($id, $newName);
 
@@ -2152,7 +2152,7 @@ interface AdminInterface
      * 
      * @param  string $dn     A valid LDAP DN String (RFC 2253) that identifies the LDAP object
      * @param  array  $new_dn New DN - a valid LDAP DN String (RFC 2253) that describes the new DN to be given to the LDAP object.
-     * @return mix
+     * @return mixed
      */
     function renameLDAPEntry($dn, $new_dn);
 
@@ -2161,14 +2161,14 @@ interface AdminInterface
      * 
      * @param  string $id      Zimbra ID
      * @param  array  $newName New UC Service name.
-     * @return mix
+     * @return mixed
      */
     function renameUCService($id, $newName);
 
     /**
      * Removes all account loggers and reloads /opt/zimbra/conf/log4j.properties.
      * 
-     * @return mix
+     * @return mixed
      */
     function resetAllLoggers();
 
@@ -2178,7 +2178,7 @@ interface AdminInterface
      * 
      * @param  Account  $account The name used to identify the account.
      * @param  DeviceId $device  Device ID.
-     * @return mix
+     * @return mixed
      */
     function resumeDevice(Account $account, DeviceId $device = null);
 
@@ -2188,7 +2188,7 @@ interface AdminInterface
      * @param  Target $target  Target selector. The name used to identify the target.
      * @param  Grantee  $grantee Grantee selector.
      * @param  RightModifier  $right   Right selector.
-     * @return mix
+     * @return mixed
      */
     function revokeRight(
         Target $target,
@@ -2202,7 +2202,7 @@ interface AdminInterface
      * Otherwise the standard test suite is run.
      * 
      * @param  string $tests Array test name.
-     * @return mix
+     * @return mixed
      */
     function runUnitTests(array $tests = []);
 
@@ -2219,7 +2219,7 @@ interface AdminInterface
      * @param  string  $sortBy Name of attribute to sort on. Default is the account name.
      * @param  array   $types Array of types to return. Legal values are: accounts|resources (default is accounts).
      * @param  bool    $sortAscending Whether to sort in ascending order. Default is 1 (true).
-     * @return mix
+     * @return mixed
      */
     function searchAccounts(
         $query,
@@ -2247,7 +2247,7 @@ interface AdminInterface
      * @param  integer $offset  The starting offset (0, 25, etc).
      * @param  bool    $refresh Refresh - whether to always re-search in LDAP even when cached entries are available. 0 (false) is the default.
      * @param  array   $attrs   Array of attributes.
-     * @return mix
+     * @return mixed
      */
     function searchAutoProvDirectory(
         Domain $domain,
@@ -2273,7 +2273,7 @@ interface AdminInterface
      * @param  string  $sortBy   Name of attribute to sort on. default is the calendar resource name.
      * @param  bool    $sortAscending    Whether to sort in ascending order. Default is 1 (true).
      * @param  string  $attrs  Comma separated list of attributes.
-     * @return mix
+     * @return mixed
      */
     function searchCalendarResources(
         SearchFilter $searchFilter = null,
@@ -2302,7 +2302,7 @@ interface AdminInterface
      * @param  array   $types       Array of types to return. Legal values are: accounts|distributionlists|aliases|resources|domains|coses. (default is accounts)
      * @param  string  $sortBy      Name of attribute to sort on. Default is the account name.
      * @param  bool    $sortAscending Whether to sort in ascending order. Default is 1 (true).
-     * @return mix
+     * @return mixed
      */
     function searchDirectory(
         $query = null,
@@ -2328,7 +2328,7 @@ interface AdminInterface
      * @param  integer $limit     The maximum number of entries to return (0 is default and means all).
      * @param  GalSearchType $type Type of addresses to search. Valid values: all|account|resource|group.
      * @param  string  $galAcctId GAL account ID.
-     * @return mix
+     * @return mixed
      */
     function searchGal(
         $domain,
@@ -2344,7 +2344,7 @@ interface AdminInterface
      * 
      * @param  integer $id   ID.
      * @param  VolumeType $type Volume type: 1 (primary message), 2 (secondary message) or 10 (index).
-     * @return mix
+     * @return mixed
      */
     function setCurrentVolume($id, VolumeType $type);
 
@@ -2355,7 +2355,7 @@ interface AdminInterface
      * 
      * @param  string $id          Zimbra ID.
      * @param  string $newPassword New password.
-     * @return mix
+     * @return mixed
      */
     function setPassword($id, $newPassword);
 
@@ -2364,7 +2364,7 @@ interface AdminInterface
      * 
      * @param  Account  $account The name used to identify the account.
      * @param  DeviceId $device  Device ID.
-     * @return mix
+     * @return mixed
      */
     function suspendDevice(Account $account, DeviceId $device = null);
 
@@ -2381,7 +2381,7 @@ interface AdminInterface
      *      such as filter, attribute map, or search base.
      * 
      * @param  SyncGalAccount  $galAccounts SyncGalAccount data source specifications.
-     * @return mix
+     * @return mixed
      */
     function syncGalAccount(SyncGalAccount $account = null);
 
@@ -2390,7 +2390,7 @@ interface AdminInterface
      * 
      * @param  string $name   Zimlet name.
      * @param  string $action Action.
-     * @return mix
+     * @return mixed
      */
     function undeployZimlet($name, $action = null);
 
@@ -2399,7 +2399,7 @@ interface AdminInterface
      * 
      * @param  Account $account  Account selector.
      * @param  IdStatus $device  Information on new device status.
-     * @return mix
+     * @return mixed
      */
     function updateDeviceStatus(Account $account, IdStatus $device);
 
@@ -2411,7 +2411,7 @@ interface AdminInterface
      * @param  string $username  App username.
      * @param  string $password  App password.
      * @param  array  $attrs     Attributes.
-     * @return mix
+     * @return mixed
      */
     function updatePresenceSessionId(
         UcService $ucservice,
@@ -2427,7 +2427,7 @@ interface AdminInterface
      * @param  string $certFilename Certificate name.
      * @param  string $keyAid       Key attach ID.
      * @param  string $keyFilename  Key name.
-     * @return mix
+     * @return mixed
      */
     function uploadDomCert(
         $certAid,
@@ -2441,7 +2441,7 @@ interface AdminInterface
      * 
      * @param  string $certAid      Certificate attach ID.
      * @param  string $certFilename Certificate name.
-     * @return mix
+     * @return mixed
      */
     function uploadProxyCA($certAid, $certFilename);
 
@@ -2450,7 +2450,7 @@ interface AdminInterface
      * 
      * @param  string $cert    Certificate.
      * @param  string $privkey Private key.
-     * @return mix
+     * @return mixed
      */
     function verifyCertKey($cert = null, $privkey = null);
 
@@ -2458,7 +2458,7 @@ interface AdminInterface
      * Mailbox selector.
      * 
      * @param  MailboxId $id Account ID.
-     * @return mix
+     * @return mixed
      */
     function verifyIndex(MailboxId $id);
 
@@ -2468,7 +2468,7 @@ interface AdminInterface
      * @param  int  $fileSize.
      * @param  int  $num.
      * @param  bool $checkBlobs.
-     * @return mix
+     * @return mixed
      */
     function verifyStoreManager($fileSize = null, $num = null, $checkBlobs = null);
 
@@ -2476,7 +2476,7 @@ interface AdminInterface
      * Version Check.
      * 
      * @param  VersionCheckAction $action Action. Either check or status.
-     * @return mix
+     * @return mixed
      */
     function versionCheck(VersionCheckAction $action);
 }
