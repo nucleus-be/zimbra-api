@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Soap;
 
-use GuzzleHttp\Message\Response as HttpResponse;
-use GuzzleHttp\Stream\Stream;
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\Response as HttpResponse;
 use Zimbra\Tests\ZimbraTestCase;
 use Zimbra\Soap\Response;
 
@@ -31,7 +31,7 @@ class ResponseTest extends ZimbraTestCase
                     .'</AuthResponse>'
                 .'</soap:Body>'
             .'</soap:Envelope>';
-        $stream = Stream::factory($xml);
+        $stream = Psr7\stream_for($xml);
         $response = new Response(new HttpResponse(200, array(), $stream));
         $this->assertSame($authToken, $response->authToken);
         $this->assertSame($lifetime, (int) $response->lifetime);
