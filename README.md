@@ -1,11 +1,11 @@
 Zimbra-API
 ==========
 
-This API A simple Object Oriented wrapper for the zimbra soap api (web service). It's written with PHP 5.4. It allows you to manage easily zimbra accounts, zimbra domains and zimbra servers.
+This API is a simple Object Oriented wrapper for the zimbra soap api (web service). It's written with PHP 5.4. It allows you to manage  zimbra accounts, zimbra domains and zimbra servers easily.
 
 ## Requirement
 * PHP >= 5.4.x with [cURL](http://php.net/manual/en/book.curl.php) extension,
-* [Guzzle](https://github.com/guzzle/guzzle) library,
+* [Guzzle](https://github.com/guzzle/guzzle) 6/psr7 library,
 * [Evenement](https://github.com/igorw/evenement) library,
 * [PhpCollection](https://github.com/schmittjoh/php-collection) library,
 * (optional) PHPUnit to run tests,
@@ -29,7 +29,7 @@ Now we can use autoloader from Composer by:
 ```yaml
 {
     "require": {
-        "nucleus-b/zimbra-api": "dev-master"
+        "nucleus-b/zimbra-api": "^1.0"
     }
 }
 ```
