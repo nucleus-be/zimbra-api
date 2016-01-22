@@ -46,29 +46,25 @@ class GetQuotaUsage extends Base
     )
     {
         parent::__construct();
-        $this->setProperty('domain', trim($domain));
-        if(null !== $allServers)
-        {
+        if(null !== $domain) {
+            $this->setProperty('domain', trim($domain));
+        }
+        if(null !== $allServers) {
             $this->setProperty('allServers', (bool) $allServers);
         }
-        if(null !== $limit)
-        {
+        if(null !== $limit) {
             $this->setProperty('limit', (int) $limit);
         }
-        if(null !== $offset)
-        {
+        if(null !== $offset) {
             $this->setProperty('offset', (int) $offset);
         }
-        if($sortBy instanceof QuotaSortBy)
-        {
+        if($sortBy instanceof QuotaSortBy) {
             $this->setProperty('sortBy', $sortBy);
         }
-        if(null !== $sortAscending)
-        {
+        if(null !== $sortAscending) {
             $this->setProperty('sortAscending', (bool) $sortAscending);
         }
-        if(null !== $refresh)
-        {
+        if(null !== $refresh) {
             $this->setProperty('refresh', (bool) $refresh);
         }
     }
